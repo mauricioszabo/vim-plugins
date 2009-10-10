@@ -1,0 +1,8 @@
+def index
+	@${1:variavel} = ${2:modelo}.all
+
+	respond_to do |format|
+		format.html #index.html.erb
+		format.xml { render :xml => @$1 }
+	end
+end
