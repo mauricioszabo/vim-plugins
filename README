@@ -1,0 +1,5 @@
+Para usar:
+
+Adicione a linha abaixo em seu arquivo .vimrc, no diretório HOME:
+
+source ~/.vim/vimrc
