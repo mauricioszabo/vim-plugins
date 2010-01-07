@@ -1,0 +1,8 @@
+def new
+	@${1:modelo} = ${2:classe}.new
+
+	respond_to do |format|
+		format.html #new.html.erb
+		format.xml { render :xml => @$1 }
+	end
+end
