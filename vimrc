@@ -10,7 +10,8 @@ augroup END
 " VIM-RSpec:
 nnoremap <c-a> :RunSpec<CR>
 
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
+" nmap <silent> <Leader>p :NERDTreeToggle<CR>
+nmap <c-p> :NERDTreeToggle<CR>
 "map to fuzzy finder text mate stylez
 nnoremap <c-f> :FuzzyFinderTextMate<CR>
 nnoremap <c-g> :ruby finder.rescan!<CR>
