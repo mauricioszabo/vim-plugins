@@ -1,3 +1,4 @@
+set modeline
 augroup myfiletypes
   " Clear old autocmds in group
   autocmd!
@@ -11,7 +12,7 @@ augroup END
 nnoremap <c-a> :RunSpec<CR>
 
 " nmap <silent> <Leader>p :NERDTreeToggle<CR>
-nmap <c-p> :NERDTreeToggle<CR>
+" nmap <c-p> :NERDTreeToggle<CR>
 "map to fuzzy finder text mate stylez
 nnoremap <c-f> :FuzzyFinderTextMate<CR>
 nnoremap <c-g> :ruby finder.rescan!<CR>
@@ -31,3 +32,10 @@ map <c-t> :tabnew<CR>
 " map <C-K> <C-W>k<C-W>_
 
 set pt=<F10>
+
+" Macro para deixar um SPEC como Pending:
+" nmap <c-p> :NERDTreeToggle<CR>
+nmap <C-p> o<tab>pending do<esc>%O  end<esc><C-v>%<home>I<tab><esc>^d2h%^d2h
+"p      CHAR    0
+
+"let @p="$o<tab>pending do<esc>%i<tab><enter>end"
