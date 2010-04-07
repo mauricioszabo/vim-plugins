@@ -26,6 +26,7 @@ nnoremap <c-Tab> :tabnext<CR>
 map <c-t> :tabnew<CR>
 "map <c-w> :tabclose<CR>
 
+map ç :noh<CR>
 " Movendo entre SPLIT Windows
 " map <C-J> <C-W>j<C-W>_
 " map <C-K> <C-W>k<C-W>_
