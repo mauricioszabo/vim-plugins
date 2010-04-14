@@ -24,6 +24,7 @@ function! s:find_grep()
 endfunction
 
 function! s:find_hpricot()
+	return -1
 	return system("gem search -i hpricot")
 endfunction
 
