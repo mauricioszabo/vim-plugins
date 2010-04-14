@@ -5,7 +5,10 @@ augroup myfiletypes
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
   " Python
-  autocmd FileType python set ai sw=4 sts=4 et
+
+  set ai sw=4 sts=4 et
+
+  autocmd FileType txt map G gq}
 augroup END
 
 " VIM-RSpec:
