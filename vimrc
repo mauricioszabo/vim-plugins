@@ -20,6 +20,18 @@ nnoremap <c-a> :RunSpec<CR>
 nnoremap <c-f> :FuzzyFinderTextMate<CR>
 nnoremap <c-g> :ruby finder.rescan!<CR>
 
+" Command-T: Opções
+" nnoremap <c-f> :CommandT<CR>
+" nnoremap <c-g> :CommandTFlush<CR>
+
+let g:CommandTCursorLeftMap='<LEFT>'
+let g:CommandTCursorRightMap='<RIGHT>'
+let g:CommandTSelectNextMap='<DOWN>'
+let g:CommandTSelectPrevMap='<UP>'
+
+let g:CommandTMatchWindowAtTop=1
+let g:CommandTCancelMap='<ESC>'
+
 filetype plugin on
 
 map <a-LEFT> :tabprevious<CR>
@@ -43,3 +55,5 @@ nmap <C-p> o<tab>pending do<esc>%O  end<esc><C-v>%<home>I<tab><esc>^d2h%^d2h
 "p      CHAR    0
 
 "let @p="$o<tab>pending do<esc>%i<tab><enter>end"
+set clipboard=unnamed
+

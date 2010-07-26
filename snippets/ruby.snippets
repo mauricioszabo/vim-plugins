@@ -30,10 +30,6 @@ snippet def
 	def ${1:method_name}
 		${2}
 	end
-snippet deft
-	def test_${1:case_name}
-		${2}
-	end
 snippet if
 	if ${1:condition}
 		${2}
@@ -139,20 +135,6 @@ snippet w
 # attr_accessor
 snippet rw
 	attr_accessor :${1:attr_names}
-# include Enumerable
-snippet Enum
-	include Enumerable
-
-	def each(&block)
-		${1}
-	end
-# include Comparable
-snippet Comp
-	include Comparable
-
-	def <=>(other)
-		${1}
-	end
 # extend Forwardable
 snippet Forw-
 	extend Forwardable
@@ -418,3 +400,9 @@ snippet tas
 	task :${2:task_name => [:dependent, :tasks]} do
 		${3}
 	end
+
+snippet pdef
+	def ${1:method_name}(${2})
+		${3}
+	end
+	private :$1
