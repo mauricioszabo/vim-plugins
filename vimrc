@@ -14,11 +14,10 @@ augroup END
 " VIM-RSpec:
 nnoremap <c-a> :RunSpec<CR>
 
+inoremap <F2> <C-R>="mauricio " . strftime("%d/%m/%Y") . ": "<CR>
+
 " nmap <silent> <Leader>p :NERDTreeToggle<CR>
 " nmap <c-p> :NERDTreeToggle<CR>
-"map to fuzzy finder text mate stylez
-nnoremap <c-f> :FuzzyFinderTextMate<CR>
-nnoremap <c-g> :ruby finder.rescan!<CR>
 
 " Command-T: Opções
 " nnoremap <c-f> :CommandT<CR>
@@ -57,3 +56,9 @@ nmap <C-p> o<tab>pending do<esc>%O  end<esc><C-v>%<home>I<tab><esc>^d2h%^d2h
 "let @p="$o<tab>pending do<esc>%i<tab><enter>end"
 set clipboard=unnamed
 
+"map to fuzzy finder text mate stylez
+"nnoremap <c-f> :FuzzyFinderTextMate<CR>
+"nnoremap <c-g> :ruby finder.rescan!<CR>
+let g:CommandTSelectPrevMap='<Esc>OA'
+nnoremap <c-f> :CommandT<CR>
+nnoremap <c-g> :CommandTFlush<CR>
