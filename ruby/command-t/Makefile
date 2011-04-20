@@ -4,26 +4,26 @@ SHELL = /bin/sh
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /usr/lib64/ruby/1.8/x86_64-linux
+topdir = /home/mauricio/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/i686-linux
 hdrdir = $(topdir)
 VPATH = $(srcdir):$(topdir):$(hdrdir)
 exec_prefix = $(prefix)
-prefix = $(DESTDIR)/usr
+prefix = $(DESTDIR)/home/mauricio/.rvm/rubies/ruby-1.8.7-p330
 sharedstatedir = $(prefix)/com
-mandir = $(DESTDIR)/usr/share/man
+mandir = $(datarootdir)/man
 psdir = $(docdir)
 oldincludedir = $(DESTDIR)/usr/include
 localedir = $(datarootdir)/locale
 bindir = $(exec_prefix)/bin
 libexecdir = $(exec_prefix)/libexec
-sitedir = $(DESTDIR)/usr/lib64/ruby/site_ruby
+sitedir = $(libdir)/ruby/site_ruby
 htmldir = $(docdir)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 includedir = $(prefix)/include
-infodir = $(DESTDIR)/usr/share/info
+infodir = $(datarootdir)/info
 vendorlibdir = $(vendordir)/$(ruby_version)
-sysconfdir = $(DESTDIR)/etc
-libdir = $(DESTDIR)/usr/lib64
+sysconfdir = $(prefix)/etc
+libdir = $(exec_prefix)/lib
 sbindir = $(exec_prefix)/sbin
 rubylibdir = $(libdir)/ruby/$(ruby_version)
 docdir = $(datarootdir)/doc/$(PACKAGE)
@@ -33,36 +33,36 @@ datarootdir = $(prefix)/share
 pdfdir = $(docdir)
 archdir = $(rubylibdir)/$(arch)
 sitearchdir = $(sitelibdir)/$(sitearch)
-datadir = $(DESTDIR)/usr/share
-localstatedir = $(DESTDIR)/var/lib
+datadir = $(datarootdir)
+localstatedir = $(prefix)/var
 sitelibdir = $(sitedir)/$(ruby_version)
 
-CC = x86_64-pc-linux-gnu-gcc
+CC = gcc
 LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
 LIBRUBYARG_SHARED = -Wl,-R -Wl,$(libdir) -L$(libdir) -l$(RUBY_SO_NAME)
 LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
 
 RUBY_EXTCONF_H = 
-CFLAGS   =  -fPIC -O2 -pipe -fno-strict-aliasing  -fPIC $(cflags) 
+CFLAGS   =  -fPIC -g -O2  -fPIC $(cflags) 
 INCFLAGS = -I. -I$(topdir) -I$(hdrdir) -I$(srcdir)
-DEFS     = 
+DEFS     = -D_FILE_OFFSET_BITS=64
 CPPFLAGS = -DHAVE_RUBY_H  $(DEFS) $(cppflags)
 CXXFLAGS = $(CFLAGS) 
-ldflags  = -L. -Wl,-O1 -rdynamic -Wl,-export-dynamic
+ldflags  = -L.  -rdynamic -Wl,-export-dynamic
 dldflags = 
 archflag = 
 DLDFLAGS = $(ldflags) $(dldflags) $(archflag)
 LDSHARED = $(CC) -shared
-AR = x86_64-pc-linux-gnu-ar
+AR = ar
 EXEEXT = 
 
-RUBY_INSTALL_NAME = ruby18
-RUBY_SO_NAME = ruby18
-arch = x86_64-linux
-sitearch = x86_64-linux
+RUBY_INSTALL_NAME = ruby
+RUBY_SO_NAME = ruby
+arch = i686-linux
+sitearch = i686-linux
 ruby_version = 1.8
-ruby = /usr/bin/ruby18
+ruby = /home/mauricio/.rvm/rubies/ruby-1.8.7-p330/bin/ruby
 RUBY = $(ruby)
 RM = rm -f
 MAKEDIRS = mkdir -p
@@ -87,8 +87,8 @@ extout_prefix =
 target_prefix = 
 LOCAL_LIBS = 
 LIBS = $(LIBRUBYARG_SHARED)  -lrt -ldl -lcrypt -lm   -lc
-SRCS = match.c ext.c matcher.c
-OBJS = match.o ext.o matcher.o
+SRCS = ext.c match.c matcher.c
+OBJS = ext.o match.o matcher.o
 TARGET = ext
 DLLIB = $(TARGET).so
 EXTSTATIC = 
@@ -118,7 +118,7 @@ install: install-so install-rb
 
 install-so: $(RUBYARCHDIR)
 install-so: $(RUBYARCHDIR)/$(DLLIB)
-$(RUBYARCHDIR)/$(DLLIB): $(RUBYARCHDIR) $(DLLIB)
+$(RUBYARCHDIR)/$(DLLIB): $(DLLIB)
 	$(INSTALL_PROG) $(DLLIB) $(RUBYARCHDIR)
 install-rb: pre-install-rb install-rb-default
 install-rb-default: pre-install-rb-default

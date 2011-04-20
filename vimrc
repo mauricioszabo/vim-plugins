@@ -4,6 +4,8 @@ augroup myfiletypes
   autocmd!
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+  "Mirah
+  au BufNewFile,BufRead *.mirah set filetype=ruby
   " Python
 
   set ai sw=4 sts=4 et
@@ -47,6 +49,7 @@ map ç :noh<CR>
 " map <C-K> <C-W>k<C-W>_
 
 set pt=<F10>
+set hlsearch
 
 " Macro para deixar um SPEC como Pending:
 " nmap <c-p> :NERDTreeToggle<CR>
@@ -59,6 +62,12 @@ set clipboard=unnamed
 "map to fuzzy finder text mate stylez
 "nnoremap <c-f> :FuzzyFinderTextMate<CR>
 "nnoremap <c-g> :ruby finder.rescan!<CR>
+
 let g:CommandTSelectPrevMap='<Esc>OA'
 nnoremap <c-f> :CommandT<CR>
 nnoremap <c-g> :CommandTFlush<CR>
+
+set wrap
+set linebreak
+set nolist  " list disables linebreak
+
