@@ -64,8 +64,10 @@ set clipboard=unnamed
 "nnoremap <c-g> :ruby finder.rescan!<CR>
 
 let g:CommandTSelectPrevMap='<Esc>OA'
-nnoremap <c-f> :CommandT<CR>
-nnoremap <c-g> :CommandTFlush<CR>
+nnoremap <c-f> :CtrlP<CR>
+let g:ctrlp_follow_symlinks=1
+"nnoremap <c-g> :CommandTFlush<CR>
+nnoremap <c-h> :NERDTreeToggle<CR>
 
 set wrap
 set linebreak
