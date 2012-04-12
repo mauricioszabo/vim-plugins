@@ -73,3 +73,9 @@ set wrap
 set linebreak
 set nolist  " list disables linebreak
 
+"TMUX
+nmap <leader>S :call Send_to_Tmux("bundle exec spec ".expand("%")."\n")<CR>
+nmap <leader>s :call Send_to_Tmux("bundle exec spec ".expand("%").":".line(".")."\n")<CR>
+
+nmap <leader>R :call Send_to_Tmux("bundle exec rspec ".expand("%")."\n")<CR>
+nmap <leader>r :call Send_to_Tmux("bundle exec rspec ".expand("%").":".line(".")."\n")<CR>
