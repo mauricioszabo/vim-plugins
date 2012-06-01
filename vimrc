@@ -74,6 +74,26 @@ set linebreak
 set nolist  " list disables linebreak
 
 "TMUX
+function! SendToTmux(append)
+  let s:thisFile = expand("%")
+  if match(s:thisFile, "_spec.rb") != -1
+    let s:tmuxCmd = "bundle exec spec "
+  elseif match(s:thisFile, "_feature.rb") != -1
+    let s:tmuxCmd = "bundle exec spec "
+  elseif match(s:thisFile, ".feature") != -1
+    let s:tmuxCmd = "bundle exec cucumber "
+  elseif match(s:thisFile, ".rb") != -1
+    let s:tmuxCmd = "ruby "
+  else
+    let s:tmuxCmd = "."
+  endif
+
+  call Send_to_Tmux(s:tmuxCmd.s:thisFile.a:append."\n")
+endfunction
+
+nmap <leader>t :call SendToTmux(":".line("."))<CR>
+nmap <leader>T :call SendToTmux("")<CR>
+
 nmap <leader>S :call Send_to_Tmux("bundle exec spec ".expand("%")."\n")<CR>
 nmap <leader>s :call Send_to_Tmux("bundle exec spec ".expand("%").":".line(".")."\n")<CR>
 
