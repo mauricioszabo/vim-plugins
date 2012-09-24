@@ -1,0 +1,20 @@
+snippet pr
+	private $1
+
+snippet pdef
+	private def $1
+
+snippet lval
+	lazy val
+
+snippet cl
+	class ${1:`Filename("", "untitled")`} ${2}
+
+snippet it
+	it should "${1:something}" in {
+		${2://body}
+	}
+
+snippet clae
+	class ${1:`Filename("", "untitled")`} extends $2
+
