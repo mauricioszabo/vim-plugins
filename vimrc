@@ -99,3 +99,6 @@ nmap <leader>s :call Send_to_Tmux("bundle exec spec ".expand("%").":".line(".").
 
 nmap <leader>R :call Send_to_Tmux("bundle exec rspec ".expand("%")."\n")<CR>
 nmap <leader>r :call Send_to_Tmux("bundle exec rspec ".expand("%").":".line(".")."\n")<CR>
+
+
+autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
