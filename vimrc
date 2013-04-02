@@ -59,14 +59,14 @@ nmap <C-p> o<tab>pending do<esc>%O  end<esc><C-v>%<home>I<tab><esc>^d2h%^d2h
 "let @p="$o<tab>pending do<esc>%i<tab><enter>end"
 set clipboard=unnamed
 
-"map to fuzzy finder text mate stylez
-"nnoremap <c-f> :FuzzyFinderTextMate<CR>
-"nnoremap <c-g> :ruby finder.rescan!<CR>
 
+"CTRL-P
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:CommandTSelectPrevMap='<Esc>OA'
 nnoremap <c-f> :CtrlP<CR>
 let g:ctrlp_follow_symlinks=1
-"nnoremap <c-g> :CommandTFlush<CR>
+set wildignore+=*/tmp/*,*/.git/*,*.so,*.swp,*.zip,*.class,*.jar
+
 nnoremap <c-h> :NERDTreeToggle<CR>
 
 set wrap
@@ -77,9 +77,9 @@ set nolist  " list disables linebreak
 function! SendToTmux(append)
   let s:thisFile = expand("%")
   if match(s:thisFile, "_spec.rb") != -1
-    let s:tmuxCmd = "bundle exec spec "
+    let s:tmuxCmd = "bundle exec rspec "
   elseif match(s:thisFile, "_feature.rb") != -1
-    let s:tmuxCmd = "bundle exec spec "
+    let s:tmuxCmd = "bundle exec rspec "
   elseif match(s:thisFile, ".feature") != -1
     let s:tmuxCmd = "bundle exec cucumber "
   elseif match(s:thisFile, ".rb") != -1
@@ -100,5 +100,6 @@ nmap <leader>s :call Send_to_Tmux("bundle exec spec ".expand("%").":".line(".").
 nmap <leader>R :call Send_to_Tmux("bundle exec rspec ".expand("%")."\n")<CR>
 nmap <leader>r :call Send_to_Tmux("bundle exec rspec ".expand("%").":".line(".")."\n")<CR>
 
+nmap <leader>] <C-w><C-]><C-w>T
 
-autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType scala,c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
