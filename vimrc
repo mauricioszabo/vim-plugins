@@ -65,7 +65,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:CommandTSelectPrevMap='<Esc>OA'
 nnoremap <c-f> :CtrlP<CR>
 let g:ctrlp_follow_symlinks=1
-set wildignore+=*/tmp/*,*/.git/*,*.so,*.swp,*.zip,*.class,*.jar
+set wildignore+=tmp/*,*/.git/*,*.so,*.swp,*.zip,*.class,*.jar
 
 nnoremap <c-h> :NERDTreeToggle<CR>
 
@@ -88,17 +88,14 @@ function! SendToTmux(append)
     let s:tmuxCmd = "."
   endif
 
-  call Send_to_Tmux(s:tmuxCmd.s:thisFile.a:append."\n")
+  let g:lastTmuxCmd=s:tmuxCmd.s:thisFile.a:append."\n"
+  call Send_to_Tmux(g:lastTmuxCmd)
 endfunction
 
 nmap <leader>t :call SendToTmux(":".line("."))<CR>
 nmap <leader>T :call SendToTmux("")<CR>
 
-nmap <leader>S :call Send_to_Tmux("bundle exec spec ".expand("%")."\n")<CR>
-nmap <leader>s :call Send_to_Tmux("bundle exec spec ".expand("%").":".line(".")."\n")<CR>
-
-nmap <leader>R :call Send_to_Tmux("bundle exec rspec ".expand("%")."\n")<CR>
-nmap <leader>r :call Send_to_Tmux("bundle exec rspec ".expand("%").":".line(".")."\n")<CR>
+nmap <leader>r :call Send_to_Tmux(g:lastTmuxCmd)<CR>
 
 nmap <leader>] <C-w><C-]><C-w>T
 
