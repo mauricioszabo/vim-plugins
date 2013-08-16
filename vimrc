@@ -65,7 +65,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:CommandTSelectPrevMap='<Esc>OA'
 nnoremap <c-f> :CtrlP<CR>
 let g:ctrlp_follow_symlinks=1
-set wildignore+=tmp/*,*/.git/*,*.so,*.swp,*.zip,*.class,*.jar
+set wildignore+=tmp/*,*/.git/*,*.so,*.swp,*.zip,*.class,*.jar,*.class,target
 
 nnoremap <c-h> :NERDTreeToggle<CR>
 
@@ -83,6 +83,8 @@ function! SendToTmux(append)
   elseif match(s:thisFile, ".feature") != -1
     let s:tmuxCmd = "bundle exec cucumber "
   elseif match(s:thisFile, ".rb") != -1
+    let s:tmuxCmd = "ruby "
+  elseif match(s:thisFile, "Test.scala") != -1
     let s:tmuxCmd = "ruby "
   else
     let s:tmuxCmd = "."
