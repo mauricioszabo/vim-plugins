@@ -68,6 +68,7 @@ let g:ctrlp_follow_symlinks=1
 set wildignore+=tmp/*,*/.git/*,*.so,*.swp,*.zip,*.class,*.jar,*.class,target
 
 nnoremap <c-h> :NERDTreeToggle<CR>
+map <F8> :execute "grep " . expand("<cword>") . " -R *" <Bar> cw<CR>
 
 set wrap
 set linebreak
