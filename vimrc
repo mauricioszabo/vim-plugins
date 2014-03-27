@@ -102,4 +102,4 @@ nmap <leader>r :call Send_to_Tmux(g:lastTmuxCmd)<CR>
 
 nmap <leader>] <C-w><C-]><C-w>T
 
-autocmd FileType scala,c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,ruby,java,html,erb,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
