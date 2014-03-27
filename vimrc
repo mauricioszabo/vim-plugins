@@ -78,11 +78,11 @@ set nolist  " list disables linebreak
 function! SendToTmux(append)
   let s:thisFile = expand("%")
   if match(s:thisFile, "_spec.rb") != -1
-    let s:tmuxCmd = "bundle exec rspec "
+    let s:tmuxCmd = "rspec "
   elseif match(s:thisFile, "_feature.rb") != -1
-    let s:tmuxCmd = "bundle exec rspec "
+    let s:tmuxCmd = "rspec "
   elseif match(s:thisFile, ".feature") != -1
-    let s:tmuxCmd = "bundle exec cucumber "
+    let s:tmuxCmd = "cucumber "
   elseif match(s:thisFile, ".rb") != -1
     let s:tmuxCmd = "ruby "
   elseif match(s:thisFile, "Test.scala") != -1
