@@ -1,4 +1,10 @@
 set modeline
+syntax on
+
+set backspace=2 " make backspace work like most other apps
+set backspace=indent,eol,start
+set ruler
+
 augroup myfiletypes
   " Clear old autocmds in group
   autocmd!
@@ -44,6 +50,7 @@ map <c-t> :tabnew<CR>
 "map <c-w> :tabclose<CR>
 
 map ç :noh<CR>
+map , :noh<CR>
 " Movendo entre SPLIT Windows
 " map <C-J> <C-W>j<C-W>_
 " map <C-K> <C-W>k<C-W>_
@@ -92,6 +99,9 @@ function! SendToTmux(append)
   endif
 
   let g:lastTmuxCmd=s:tmuxCmd.s:thisFile.a:append."\n"
+  if exists('g:tmuxPrefix')
+    let g:lastTmuxCmd=g:tmuxPrefix." ".g:lastTmuxCmd
+  end
   call Send_to_Tmux(g:lastTmuxCmd)
 endfunction
 
