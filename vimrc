@@ -35,6 +35,8 @@ let g:CommandTCancelMap='<ESC>'
 
 filetype plugin on
 
+map - :tabprevious<CR>
+map = :tabnext<CR>
 map <a-LEFT> :tabprevious<CR>
 map <a-RIGHT> :tabnext<CR>
 "map <a-s-RIGHT> :tabnext<CR>
@@ -44,6 +46,7 @@ map <c-t> :tabnew<CR>
 "map <c-w> :tabclose<CR>
 
 map ç :noh<CR>
+map , :noh<CR>
 " Movendo entre SPLIT Windows
 " map <C-J> <C-W>j<C-W>_
 " map <C-K> <C-W>k<C-W>_
