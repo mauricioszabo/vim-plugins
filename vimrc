@@ -1,4 +1,10 @@
 set modeline
+syntax on
+
+set backspace=2 " make backspace work like most other apps
+set backspace=indent,eol,start
+set ruler
+
 augroup myfiletypes
   " Clear old autocmds in group
   autocmd!
@@ -95,6 +101,9 @@ function! SendToTmux(append)
   endif
 
   let g:lastTmuxCmd=s:tmuxCmd.s:thisFile.a:append."\n"
+  if exists('g:tmuxPrefix')
+    let g:lastTmuxCmd=g:tmuxPrefix." ".g:lastTmuxCmd
+  end
   call Send_to_Tmux(g:lastTmuxCmd)
 endfunction
 
